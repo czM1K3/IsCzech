@@ -6,12 +6,14 @@ using namespace std;
 
 class Letter
 {
-private:
-    const string letter;
-    const double percentageOriginal;
 public:
     Letter(string newLetter, double newPercentage);
     void Log();
+    int count;
+    const string letter;
+    const double percentageOriginal;
+    double percentageNew;
+    double percentageDifference;
 };
 
 #endif

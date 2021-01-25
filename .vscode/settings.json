@@ -3,6 +3,7 @@
         "algorithm": "cpp",
         "*.tcc": "cpp",
         "type_traits": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "iostream": "cpp"
     }
 }

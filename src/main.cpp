@@ -1,13 +1,21 @@
 #include <iostream>
-#include "Calculator.h"
 #include <windows.h>
+#include <fstream>
+#include "Calculator.h"
 
 using namespace std;
 
 int main(){
     SetConsoleOutputCP(CP_UTF8);
     Calculator calc;
-    calc.Calculate("bum");
+
+    ifstream file("input.txt");
+    string str;
+    while (getline(file, str))
+    {
+        calc.Calculate(str);
+    }
     
+
     return 0;
 }

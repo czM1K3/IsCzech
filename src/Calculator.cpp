@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 #include "Calculator.h"
 
 using namespace std;
@@ -50,8 +51,49 @@ void Calculator::Calculate(string original)
         Letter("z", 2.123),
         Letter("ž", 1.022)
     };
+
+    int counter = 0;
+
+    for (int x = 0; x < (sizeof(array)/sizeof(*array)); x++)
+    {
+        if (array[x].letter != "ch")
+        {
+            char current = array[x].letter[0];
+            for (int i = 0; i < original.length(); i++)
+            {
+                if (current == original[i])
+                {
+                    if (!(original[i] == 'c' && i < original.length() && original[i + 1] == 'h') && !(original[i] == 'h' && i > 0 && original[i - 1] == 'c'))
+                    {
+                        array[x].count++;
+                        counter++;
+                    }
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < original.length() - 1; i++)
+            {
+                if (original[i] == 'c' && original[i + 1] == 'h')
+                {
+                    array[x].count++;
+                    counter++;
+                    i++;
+                }
+            }
+        }
+    }
+
+    double sum = 0;
     for (int i = 0; i < (sizeof(array)/sizeof(*array)); i++)
     {
+        array[i].percentageNew = (double) array[i].count / counter * 100;
+        array[i].percentageDifference = std::abs(array[i].percentageOriginal - array[i].percentageNew);
+        sum += array[i].percentageDifference;
         array[i].Log();
     }
+    double avg = sum / 42;
+    cout << avg << " - " << sum << " < " << counter << endl;
+    cout << "-----------------------------------" << endl;
 }
