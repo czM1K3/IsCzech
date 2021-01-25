@@ -7,7 +7,7 @@ using namespace std;
 void Calculator::Calculate(string original)
 {
     Letter array [42] = {
-        Letter("a", 0.6698),
+        Letter("a", 6.698),
         Letter("á", 2.129),
         Letter("b", 1.665),
         Letter("c", 1.601),
