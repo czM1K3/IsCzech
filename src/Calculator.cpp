@@ -83,5 +83,6 @@ void Calculator::Calculate(string original)
     }
     double avg = sum / 42;
     cout << avg << " - " << sum << " < " << counter << " << " << difftime(time(0), start) << "s" << endl;
+    cout << (avg < 1 ? "Czech" : "Non-Czech") << endl;
     cout << "-----------------------------------" << endl;
 }
