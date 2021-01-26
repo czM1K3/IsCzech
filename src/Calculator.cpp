@@ -67,8 +67,9 @@ void Calculator::Calculate(string original)
             array[x].count++;
             counter++;
         }
-        
+        cout << ".";
     }
+    cout << endl;
 
     double sum = 0;
     for (int i = 0; i < (sizeof(array)/sizeof(*array)); i++)
