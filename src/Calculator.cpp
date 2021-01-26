@@ -2,12 +2,14 @@
 #include <string>
 #include <cmath>
 #include <regex>
+#include <time.h>
 #include "Calculator.h"
 
 using namespace std;
 
 void Calculator::Calculate(string original)
 {
+    time_t start = time(0);
     Letter array [42] = {
         Letter("ch", 1.007),
         Letter("a", 6.698),
@@ -80,6 +82,6 @@ void Calculator::Calculate(string original)
         //array[i].Log();
     }
     double avg = sum / 42;
-    cout << avg << " - " << sum << " < " << counter << endl;
+    cout << avg << " - " << sum << " < " << counter << " << " << difftime(time(0), start) << "s" << endl;
     cout << "-----------------------------------" << endl;
 }
