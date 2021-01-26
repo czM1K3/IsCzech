@@ -53,6 +53,8 @@ void Calculator::Calculate(string original)
         Letter("ž", 1.022)
     };
 
+    transform(original.begin(), original.end(), original.begin(), [](unsigned char c){return std::tolower(c);});
+
     int counter = 0;
 
     for (int x = 0; x < (sizeof(array) / sizeof(*array)); x++)
