@@ -62,9 +62,10 @@ void Calculator::Calculate(string original)
     for (int x = 0; x < (sizeof(array) / sizeof(*array)); x++)
     {
         string current = array[x].letter;
-        while (std::strstr(original.c_str(), current.c_str()))
+        while (true)
         {
             int pos = original.find(current);
+            if (pos == string::npos) break;
             original.erase(pos, current.length());
             array[x].count++;
             counter++;
@@ -79,7 +80,7 @@ void Calculator::Calculate(string original)
         array[i].percentageNew = (double) array[i].count / counter * 100;
         array[i].percentageDifference = std::abs(array[i].percentageOriginal - array[i].percentageNew);
         sum += array[i].percentageDifference;
-        //array[i].Log();
+        array[i].Log();
     }
     double avg = sum / 42;
     cout << avg << " - " << sum << " < " << counter << " << " << difftime(time(0), start) << "s" << endl;
